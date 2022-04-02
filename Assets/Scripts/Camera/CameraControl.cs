@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -10,6 +8,11 @@ public class CameraControl : MonoBehaviour
 
     private void Awake()
     {
-        
+        _offsetToTarget = this.transform.position - target.position;
+    }
+
+    private void Update()
+    {
+        this.transform.position = target.transform.position + _offsetToTarget;
     }
 }
