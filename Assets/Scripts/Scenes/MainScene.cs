@@ -3,6 +3,7 @@
 public class MainScene : MonoBehaviour
 {
     public GameObject PlacementUI;
+    public GameObject GoButton;
     public GameObject Ball;
     public Transform PlacableItemsRoot;
     public Vector3 OffsetForPlacingItems;
@@ -21,4 +22,7 @@ public class MainScene : MonoBehaviour
     {
         Ball.transform.position = _firstBallPosition;
     }
+
+    public void OnStartButtonClick()
+    { }
 }
