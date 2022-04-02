@@ -10,13 +10,21 @@ public class ScoreCalculator : MonoBehaviour
     public int Score = 0;
     public bool pause;
 
-    void Update () {
-        if(!pause){
+    void Update ()
+    {
+        if(!pause)
+        {
             seconds += Time.deltaTime;
             tempScore = seconds * 20;
             Score = (int) tempScore;
             gameObject.GetComponent<Text>().text = Score + "";
         }
+    }
 
+    public void ResetScore()
+    {
+        Score = 0;
+        tempScore = 0;
+        seconds = 0;
     }
 }

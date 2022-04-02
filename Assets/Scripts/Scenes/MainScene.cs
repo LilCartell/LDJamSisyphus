@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-public class MainScene : MonoBehaviour
+public class MainScene : GenericScene
 {
     public GameObject PlacementUI;
     public GameObject GoButton;
     public GameObject Ball;
+    public GameObject ScoreContainer;
     public Transform PlacableItemsRoot;
     public Vector3 OffsetForPlacingItems;
 
@@ -24,5 +25,12 @@ public class MainScene : MonoBehaviour
     }
 
     public void OnStartButtonClick()
-    { }
+    {
+        StateMachine.Instance.TransitionToState(StateType.BALL_ROLLING);
+    }
+
+    protected override StateType GetFirstState()
+    {
+        return StateType.PLACING_OBJECTS;
+    }
 }
