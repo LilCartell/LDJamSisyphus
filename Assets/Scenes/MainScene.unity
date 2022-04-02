@@ -451,6 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecf7adb7cbec294e95e389a5113b781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlacementUI: {fileID: 2142545516}
+  Ball: {fileID: 1364039317}
   PlacableItemsRoot: {fileID: 808816199}
   OffsetForPlacingItems: {x: 0, y: 0, z: 0}
 --- !u!4 &827077903
@@ -644,11 +646,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 751912248}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1364039317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4931210822839677496, guid: 34ac0c5da19ceb4459f5341ff981316c,
+    type: 3}
+  m_PrefabInstance: {fileID: 884706322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1915556653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4931210822839677497, guid: 34ac0c5da19ceb4459f5341ff981316c,
     type: 3}
   m_PrefabInstance: {fileID: 884706322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2142545516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2498700914578467840, guid: 4b46c613cb73edc4c91dd4360b12c544,
+    type: 3}
+  m_PrefabInstance: {fileID: 801445764629579349}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &801445764629579349
 PrefabInstance:
