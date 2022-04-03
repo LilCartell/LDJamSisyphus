@@ -42,6 +42,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
             copy.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta;
             copy.GetComponent<LayoutElement>().ignoreLayout = true;
             copy.transform.localScale = Vector3.one;
+            MainScene.Instance.IsDraggingObject = true;
         }
     }
 
@@ -80,6 +81,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
             if (_linked3DItem == null || !_linked3DItem.gameObject.activeSelf)
                 Destroy(_linked3DItem.gameObject);
             Destroy(this.gameObject);
+            MainScene.Instance.IsDraggingObject = false;
         }
     }
 }
