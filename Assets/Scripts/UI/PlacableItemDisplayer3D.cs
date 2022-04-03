@@ -49,12 +49,6 @@ public class PlacableItemDisplayer3D : MonoBehaviour
             Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, MainScene.Instance.MinDistanceBetweenItems, overlapSphereLayerMask);
             if(hitColliders.ToList().Exists(collider => collider.gameObject != this.gameObject))
             {
-                string collidersInRange = "";
-                foreach (var collider in hitColliders)
-                {
-                    collidersInRange += collider.name + " ------ ";
-                }
-                Debug.Log(collidersInRange);
                 _placementOk = false;
                 NormalSpriteRenderer.enabled = false;
                 ErrorSpriteRenderer.enabled = true;
