@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Text tempTextIndicator;
+    public Image icon;
 
     private PlacableItemType _itemType;
     private bool _isCopy;
@@ -14,7 +14,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
     {
         _itemType = itemType;
         _isCopy = false;
-        tempTextIndicator.text = GameDatas.Instance.GetPlacableItemArchetypeByType(itemType).Name;
+        icon.sprite = Resources.Load<Sprite>(GameDatas.Instance.GetPlacableItemArchetypeByType(itemType).SpritePath);
     }
 
     public void InitializeCopyWithItemType(PlacableItemType itemType)
@@ -71,7 +71,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
     private void Set2DVisible(bool visible)
     {
         GetComponent<Image>().enabled = visible;
-        tempTextIndicator.gameObject.SetActive(visible);
+        icon.gameObject.SetActive(visible);
     }
 
     public void OnEndDrag(PointerEventData eventData)

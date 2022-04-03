@@ -20,31 +20,24 @@ public class GameDatas
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.ROCK,
-            Name = "Rock",
+            SpritePath = "Sprites/Item_rock",
             PrefabPath = "Prefabs/PlacableItems/Rock",
             Cost = 100
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.TREE,
-            Name = "Tree",
+            SpritePath = "Sprites/Items_tree",
             PrefabPath = "Prefabs/PlacableItems/Tree",
             Cost = 100
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.BUMPER,
-            Name = "Bumper",
+            SpritePath = "Sprites/Item_bumper",
             PrefabPath = "Prefabs/PlacableItems/Bumper",
             Cost = 100
         }
-    //     new PlacableItemArchetype()
-    //     {
-    //         ItemType = PlacableItemType.BACKWARD_RECTANGLE,
-    //         Name = "\\",
-    //         PrefabPath = "Prefabs/PlacableItems/BackwardRectangle",
-    //         Cost = 100
-    //     }
     };
 
     private GameDatas()
