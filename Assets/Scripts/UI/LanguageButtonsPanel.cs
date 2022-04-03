@@ -6,18 +6,21 @@ public class LanguageButtonsPanel : MonoBehaviour
     {
         Strings.Language = "French";
         ReloadAllTexts();
+        GoToNextScreen();
     }
 
     public void OnEnglishButtonClick()
     {
         Strings.Language = "English";
         ReloadAllTexts();
+        GoToNextScreen();
     }
 
     public void OnGreekButtonClick()
     {
         Strings.Language = "Greek";
         ReloadAllTexts();
+        GoToNextScreen();
     }
 
     private void ReloadAllTexts()
@@ -25,6 +28,18 @@ public class LanguageButtonsPanel : MonoBehaviour
         foreach (var localizedText in Resources.FindObjectsOfTypeAll<I18NText>())
         {
             localizedText.ReloadText();
+        }
+    }
+
+    private void GoToNextScreen()
+    {
+        var registeredPseudo = TitleScene.Instance.GetRegisteredPseudo();
+        if (string.IsNullOrEmpty(registeredPseudo))
+            StateMachine.Instance.TransitionToState(StateType.PSEUDO_SELECT);
+        else
+        {
+            GameSession.Instance.Pseudo = registeredPseudo;
+            StateMachine.Instance.TransitionToState(StateType.TITLE_SCREEN);
         }
     }
 }

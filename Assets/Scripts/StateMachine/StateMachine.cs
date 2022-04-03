@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StateMachine : MonoBehaviour
 {
@@ -24,11 +25,56 @@ public class StateMachine : MonoBehaviour
     {
 		switch(newState)
         {
+			case StateType.LANGUAGE_SELECT:
+				switch(CurrentState)
+                {
+					case StateType.NONE:
+						TitleScene.Instance.LanguageButtonsPanel.gameObject.SetActive(true);
+						break;
+                }
+				break;
+
+			case StateType.PSEUDO_SELECT:
+				switch(CurrentState)
+                {
+					case StateType.LANGUAGE_SELECT:
+						TitleScene.Instance.LanguageButtonsPanel.gameObject.SetActive(false);
+						TitleScene.Instance.EnterPseudoPanel.gameObject.SetActive(true);
+						break;
+                }
+				break;
+
+			case StateType.TITLE_SCREEN:
+				switch(CurrentState)
+                {
+					case StateType.LANGUAGE_SELECT:
+						TitleScene.Instance.LanguageButtonsPanel.gameObject.SetActive(false);
+						TitleScene.Instance.TitleScreen.gameObject.SetActive(true);
+						break;
+
+					case StateType.PSEUDO_SELECT:
+						TitleScene.Instance.EnterPseudoPanel.gameObject.SetActive(false);
+						TitleScene.Instance.TitleScreen.gameObject.SetActive(true);
+						break;
+				}
+				break;
+
+			case StateType.END_TITLE_SCENE:
+				switch(CurrentState)
+                {
+					case StateType.TITLE_SCREEN:
+						TitleScene.Instance.TitleScreen.gameObject.SetActive(false);
+						TitleScene.Instance.EndTitleScreen.gameObject.SetActive(true);
+						TitleScene.Instance.StartEndTitleScreenTimer();
+						break;
+                }
+				break;
+
 			case StateType.PLACING_OBJECTS:
 				switch(CurrentState)
 				{
 					case StateType.NONE:
-					case StateType.TITLE_SCREEN:
+					case StateType.END_TITLE_SCENE:
 						MainScene.Instance.Ball.gameObject.SetActive(false);
 						Camera.main.GetComponent<CameraControl>().SetToBasePosition();
 						MainScene.Instance.ScoreContainer.SetActive(false);
@@ -46,14 +92,15 @@ public class StateMachine : MonoBehaviour
 			case StateType.BALL_ROLLING:
 				switch(CurrentState)
                 {
-					case StateType.PLACING_OBJECTS:
-						MainScene.Instance.PlacementUI.gameObject.SetActive(false);
-						MainScene.Instance.SetBallToInitPosition();
-						MainScene.Instance.Ball.gameObject.SetActive(true);
-						Camera.main.GetComponent<CameraControl>().SetToRollingPosition();
-						MainScene.Instance.ScoreContainer.GetComponentInChildren<ScoreCalculator>().ResetScore();
-						MainScene.Instance.ScoreContainer.SetActive(true);
+					case StateType.END_TITLE_SCENE:
+						SceneManager.LoadScene("MainScene");
+						MainScene.Instance.PrepareBallRoll();
 						break;
+
+					case StateType.PLACING_OBJECTS:
+						MainScene.Instance.PrepareBallRoll();
+						break;
+
                 }
 				break;
         }
