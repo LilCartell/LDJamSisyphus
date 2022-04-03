@@ -99,7 +99,7 @@ public class MainScene : GenericScene
 
     public float GetBestScore()
     {
-        return 0;
+        return GameSession.Instance.BestScore;
     }
 
     protected override StateType GetFirstState()

@@ -2,6 +2,7 @@
 {
 	public string Pseudo;
 	public float LastScore;
+	public float BestScore;
 	public bool SawTutorial;
 	public bool HasWonOnce;
 

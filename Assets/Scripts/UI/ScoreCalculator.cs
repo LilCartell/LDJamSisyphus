@@ -23,6 +23,8 @@ public class ScoreCalculator : MonoBehaviour
     public void SubmitScore()
     {
         GameSession.Instance.LastScore = Timer;
+        if (Timer >= GameSession.Instance.BestScore)
+            GameSession.Instance.BestScore = Timer;
         String Pseudo = GameSession.Instance.Pseudo;
         int scoreToSubmit = (int) GameSession.Instance.LastScore;
         Highscores.AddNewHighscore(Pseudo, scoreToSubmit);
