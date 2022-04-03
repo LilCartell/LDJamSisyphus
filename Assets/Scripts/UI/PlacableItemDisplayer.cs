@@ -39,6 +39,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
             eventData.pointerDrag = copy;
             copy.transform.parent = this.transform.parent;
             copy.transform.position = this.transform.position;
+            copy.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta;
             copy.GetComponent<LayoutElement>().ignoreLayout = true;
             copy.transform.localScale = Vector3.one;
         }
@@ -51,7 +52,8 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
             this.transform.position = eventData.position;
             Ray rayCast = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit result;
-            if (Physics.Raycast(rayCast, out result))
+            int layerMask = LayerMask.GetMask("Ground");
+            if (Physics.Raycast(rayCast, out result, Mathf.Infinity, layerMask))
             {
                 _linked3DItem.transform.position = result.point + MainScene.Instance.OffsetForPlacingItems;
                 Set2DVisible(false);
