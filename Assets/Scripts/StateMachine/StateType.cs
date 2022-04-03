@@ -1,7 +1,10 @@
 ﻿public enum StateType
 {
     NONE,
+    LANGUAGE_SELECT,
+    PSEUDO_SELECT,
     TITLE_SCREEN,
+    END_TITLE_SCENE,
     PLACING_OBJECTS,
     BALL_ROLLING,
     SHOPPING

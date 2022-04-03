@@ -33,6 +33,16 @@ public class MainScene : GenericScene
         StateMachine.Instance.TransitionToState(StateType.BALL_ROLLING);
     }
 
+    public void PrepareBallRoll()
+    {
+        PlacementUI.gameObject.SetActive(false);
+        SetBallToInitPosition();
+        Ball.gameObject.SetActive(true);
+        Camera.main.GetComponent<CameraControl>().SetToRollingPosition();
+        ScoreContainer.GetComponentInChildren<ScoreCalculator>().ResetScore();
+        ScoreContainer.SetActive(true);
+    }
+
     protected override StateType GetFirstState()
     {
         return StateType.PLACING_OBJECTS;
