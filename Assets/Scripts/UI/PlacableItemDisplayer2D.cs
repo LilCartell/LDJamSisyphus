@@ -28,6 +28,7 @@ public class PlacableItemDisplayer2D : MonoBehaviour, IBeginDragHandler, IDragHa
         _linked3DItem.transform.localScale = scaleBefore;
         _linked3DItem.transform.localRotation = rotationBefore;
         _linked3DItem.gameObject.SetActive(false);
+        _linked3DItem.SetDraggedFrom2D();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

@@ -6,6 +6,7 @@ public class PlacableItemDisplayer3D : MonoBehaviour
     public SpriteRenderer NormalSpriteRenderer;
     public SpriteRenderer ErrorSpriteRenderer;
     public bool IsOnGround { get; private set; }
+    public bool WasCreatedFromConstructionScreen { get; private set; }
 
     private bool _dragged3D;
     private bool _dragged2D;
@@ -14,11 +15,12 @@ public class PlacableItemDisplayer3D : MonoBehaviour
     public void SetDraggedFrom2D()
     {
         _dragged2D = true;
+        WasCreatedFromConstructionScreen = true;
     }
 
     public void OnMouseDown()
     {
-        if(! _dragged2D)
+        if(!_dragged2D && WasCreatedFromConstructionScreen)
             _dragged3D = true;
     }
 

@@ -77,9 +77,12 @@ public class StateMachine : MonoBehaviour
 					case StateType.END_TITLE_SCENE:
 						MainScene.Instance.PrepareObjectsPlacement();
 						break;
-
-					case StateType.BALL_ROLLING:
+					case StateType.SCORE_SCREEN:
+					case StateType.TUTORIAL:
+						MainScene.Instance.ScoreScreen.gameObject.SetActive(false);
+						MainScene.Instance.SisyphusDialog.gameObject.SetActive(false);
 						MainScene.Instance.PrepareObjectsPlacement();
+						MainScene.Instance.ReactivateDestroyedObjects();
 						break;
 				}
 				break;
@@ -96,7 +99,45 @@ public class StateMachine : MonoBehaviour
 						MainScene.Instance.PrepareBallRoll();
 						MainScene.Instance.GoButton.gameObject.SetActive(false);
 						break;
+                }
+				break;
 
+			case StateType.TUTORIAL:
+				switch(CurrentState)
+                {
+					case StateType.BALL_ROLLING:
+						MainScene.Instance.ScoreContainer.gameObject.SetActive(false);
+						MainScene.Instance.SisyphusDialog.LoadTutorialDialog();
+						break;
+                }
+				break;
+
+			case StateType.SCORE_SCREEN:
+				switch(CurrentState)
+                {
+					case StateType.BALL_ROLLING:
+						MainScene.Instance.ScoreCalculator.SubmitScore();
+						if(GameSession.Instance.HasWonOnce)
+                        {
+							MainScene.Instance.ScoreScreen.Load(Strings.Get("RANDOM_WIN_SCORE_SCREEN"));
+							MainScene.Instance.Leaderboard.gameObject.SetActive(true);
+                        }
+						else
+                        {
+							if(GameSession.Instance.LastScore > MainScene.Instance.VictoryTime) //Victory !
+                            {
+								MainScene.Instance.Leaderboard.gameObject.SetActive(true);
+								MainScene.Instance.ScoreScreen.Load(Strings.Get("FIRST_WIN_SCORE_SCREEN"));
+								MainScene.Instance.SisyphusDialog.LoadFirstWinDialog();
+								GameSession.Instance.HasWonOnce = true;
+                            }
+							else
+                            {
+								MainScene.Instance.Leaderboard.gameObject.SetActive(false);
+								MainScene.Instance.ScoreScreen.Load(Strings.Get("DEFEAT_SCORE_SCREEN"));
+                            }
+                        }
+						break;
                 }
 				break;
         }
