@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StateMachine : MonoBehaviour
@@ -30,6 +32,9 @@ public class StateMachine : MonoBehaviour
                 {
 					case StateType.NONE:
 						TitleScene.Instance.LanguageButtonsPanel.gameObject.SetActive(true);
+						TitleScene.Instance.EnterPseudoPanel.gameObject.SetActive(false);
+						TitleScene.Instance.TitleScreen.gameObject.SetActive(false);
+						TitleScene.Instance.EndTitleScreen.gameObject.SetActive(false);
 						break;
                 }
 				break;
@@ -92,7 +97,7 @@ public class StateMachine : MonoBehaviour
                 {
 					case StateType.END_TITLE_SCENE:
 						SceneManager.LoadScene("MainScene");
-						MainScene.Instance.PrepareBallRoll();
+						StartCoroutine(ExecuteActionAfterAFrame(() => MainScene.Instance.PrepareBallRoll()));
 						break;
 
 					case StateType.PLACING_OBJECTS:
@@ -142,5 +147,11 @@ public class StateMachine : MonoBehaviour
 				break;
         }
 		CurrentState = newState;
+    }
+
+	private IEnumerator ExecuteActionAfterAFrame(Action action)
+    {
+		yield return null;
+		action.Invoke();
     }
 }
