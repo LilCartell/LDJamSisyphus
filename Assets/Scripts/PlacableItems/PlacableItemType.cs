@@ -5,5 +5,7 @@
     BACKWARD_RECTANGLE,
     ROCK,
     TREE,
-    BUMPER
+    BUMPER,
+    FLIPPER,
+    PORTAL
 }

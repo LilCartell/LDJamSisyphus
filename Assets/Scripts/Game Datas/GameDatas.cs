@@ -22,21 +22,35 @@ public class GameDatas
             ItemType = PlacableItemType.ROCK,
             SpritePath = "Sprites/Item_rock",
             PrefabPath = "Prefabs/PlacableItems/Rock",
-            Cost = 100
+            Cost = 1
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.TREE,
             SpritePath = "Sprites/Items_tree",
             PrefabPath = "Prefabs/PlacableItems/Tree",
-            Cost = 100
+            Cost = 3
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.BUMPER,
             SpritePath = "Sprites/Item_bumper",
             PrefabPath = "Prefabs/PlacableItems/Bumper",
-            Cost = 100
+            Cost = 5
+        },
+        new PlacableItemArchetype()
+        {
+            ItemType = PlacableItemType.FLIPPER,
+            SpritePath = "Sprites/Items_Flipper1",
+            PrefabPath = "Prefabs/PlacableItems/Flipper",
+            Cost = 10
+        },
+        new PlacableItemArchetype()
+        {
+            ItemType = PlacableItemType.PORTAL,
+            SpritePath = "Sprites/Items_Portal1",
+            PrefabPath = "Prefabs/PlacableItems/Portal",
+            Cost = 15
         }
     };
 
