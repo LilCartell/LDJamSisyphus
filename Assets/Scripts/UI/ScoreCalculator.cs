@@ -8,6 +8,8 @@ public class ScoreCalculator : MonoBehaviour
 
     public float Timer { get; private set; }
 
+    public GameObject HighscoreScript;
+
     void Update ()
     {
         if(StateMachine.Instance.CurrentState == StateType.BALL_ROLLING)
@@ -21,6 +23,9 @@ public class ScoreCalculator : MonoBehaviour
     public void SubmitScore()
     {
         GameSession.Instance.LastScore = Timer;
+        String Pseudo = GameSession.Instance.Pseudo;
+        int scoreToSubmit = (int) GameSession.Instance.LastScore;
+        Highscores.AddNewHighscore(Pseudo, scoreToSubmit);
     }
 
     public void ResetScore()
