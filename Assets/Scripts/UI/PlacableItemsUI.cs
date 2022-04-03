@@ -2,7 +2,7 @@
 
 public class PlacableItemsUI : MonoBehaviour
 {
-    public PlacableItemDisplayer2D placableItemDisplayerPrefab;
+    public PlacableItemDisplayer placableItemDisplayerPrefab;
     public Transform itemsRoot;
 
     private void Awake()
@@ -12,7 +12,7 @@ public class PlacableItemsUI : MonoBehaviour
             var placableItemDisplayer = Instantiate(placableItemDisplayerPrefab);
             placableItemDisplayer.transform.parent = itemsRoot;
             placableItemDisplayer.transform.localScale = Vector3.one;
-            placableItemDisplayer.GetComponent<PlacableItemDisplayer2D>().InitializeOriginalWithItemType(archetype.ItemType);
+            placableItemDisplayer.GetComponent<PlacableItemDisplayer>().InitializeOriginalWithItemType(archetype.ItemType);
         }
     }
 }
