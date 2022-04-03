@@ -8,9 +8,10 @@ public class MainScene : GenericScene
     public GameObject ScoreContainer;
     public Transform PlacableItemsRoot;
     public Vector3 OffsetForPlacingItems;
+    public float MinDistanceBetweenItems;
 
     [HideInInspector]
-    public bool IsDraggingObject;
+    public bool IsDragging2DObject;
 
     public static MainScene Instance { get; private set; }
 

@@ -56,7 +56,7 @@ public class CameraControl : MonoBehaviour
 
             if(!anyDirectionKeyPressed
                 && (!EventSystem.current.IsPointerOverGameObject()
-                    || MainScene.Instance.IsDraggingObject))//Test for mouse movements if no direction key and not browsing items
+                    || MainScene.Instance.IsDragging2DObject))//Test for mouse movements if no direction key and not browsing items
             {
                 float xRatio = Input.mousePosition.x / Screen.width;
                 float yRatio = Input.mousePosition.y / Screen.height;
