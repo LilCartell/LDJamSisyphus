@@ -1,30 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreCalculator : MonoBehaviour
-{   
-    private float seconds;
-    private float tempScore = 0;
-    public int Score = 0;
-    public bool pause;
+{
+    public Text ScoreText;
+
+    public float Timer { get; private set; }
 
     void Update ()
     {
-        if(!pause)
-        {
-            seconds += Time.deltaTime;
-            tempScore = seconds * 20;
-            Score = (int) tempScore;
-            gameObject.GetComponent<Text>().text = Score + "";
-        }
+        Timer += Time.deltaTime;
+        var timeSpan = TimeSpan.FromSeconds(Timer);
+        ScoreText.text = string.Format("{0:D2}'{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
     }
 
     public void ResetScore()
     {
-        Score = 0;
-        tempScore = 0;
-        seconds = 0;
+        Timer = 0;
     }
 }

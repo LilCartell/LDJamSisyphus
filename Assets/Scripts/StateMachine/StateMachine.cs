@@ -75,16 +75,11 @@ public class StateMachine : MonoBehaviour
 				{
 					case StateType.NONE:
 					case StateType.END_TITLE_SCENE:
-						MainScene.Instance.Ball.gameObject.SetActive(false);
-						Camera.main.GetComponent<CameraControl>().SetToBasePosition();
-						MainScene.Instance.ScoreContainer.SetActive(false);
+						MainScene.Instance.PrepareObjectsPlacement();
 						break;
 
 					case StateType.BALL_ROLLING:
-						MainScene.Instance.Ball.gameObject.SetActive(false);
-						MainScene.Instance.PlacementUI.gameObject.SetActive(true);
-						Camera.main.GetComponent<CameraControl>().SetToBasePosition();
-						MainScene.Instance.ScoreContainer.SetActive(false);
+						MainScene.Instance.PrepareObjectsPlacement();
 						break;
 				}
 				break;
@@ -99,6 +94,7 @@ public class StateMachine : MonoBehaviour
 
 					case StateType.PLACING_OBJECTS:
 						MainScene.Instance.PrepareBallRoll();
+						MainScene.Instance.GoButton.gameObject.SetActive(false);
 						break;
 
                 }
