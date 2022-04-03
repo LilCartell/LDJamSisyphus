@@ -99,3 +99,7 @@ MonoBehaviour:
   target: {fileID: 0}
   DistanceFactorWhenPlacingObjects: 2
   MovementSpeedFactor: 0.01
+  UpperLimit: 0.74
+  DownLimit: 8.41
+  LeftLimit: 1.07
+  RightLimit: -1.29

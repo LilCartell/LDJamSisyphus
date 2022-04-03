@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Text tempTextIndicator;
+    public Image icon;
 
     private PlacableItemType _itemType;
     private bool _isCopy;
@@ -14,7 +14,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
     {
         _itemType = itemType;
         _isCopy = false;
-        tempTextIndicator.text = GameDatas.Instance.GetPlacableItemArchetypeByType(itemType).Name;
+        icon.sprite = Resources.Load<Sprite>(GameDatas.Instance.GetPlacableItemArchetypeByType(itemType).SpritePath);
     }
 
     public void InitializeCopyWithItemType(PlacableItemType itemType)
@@ -42,6 +42,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
             copy.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta;
             copy.GetComponent<LayoutElement>().ignoreLayout = true;
             copy.transform.localScale = Vector3.one;
+            MainScene.Instance.IsDraggingObject = true;
         }
     }
 
@@ -70,7 +71,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
     private void Set2DVisible(bool visible)
     {
         GetComponent<Image>().enabled = visible;
-        tempTextIndicator.gameObject.SetActive(visible);
+        icon.gameObject.SetActive(visible);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -80,6 +81,7 @@ public class PlacableItemDisplayer : MonoBehaviour, IBeginDragHandler, IDragHand
             if (_linked3DItem == null || !_linked3DItem.gameObject.activeSelf)
                 Destroy(_linked3DItem.gameObject);
             Destroy(this.gameObject);
+            MainScene.Instance.IsDraggingObject = false;
         }
     }
 }
