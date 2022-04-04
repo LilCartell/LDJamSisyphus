@@ -7,5 +7,7 @@
     TREE,
     BUMPER,
     FLIPPER,
-    PORTAL
+    PORTAL,
+    BOXEG,
+    BOXED
 }

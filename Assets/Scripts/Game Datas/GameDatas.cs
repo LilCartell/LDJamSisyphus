@@ -47,6 +47,20 @@ public class GameDatas
         },
         new PlacableItemArchetype()
         {
+            ItemType = PlacableItemType.BOXEG,
+            SpritePath = "Sprites/Items_Boxe2",
+            PrefabPath = "Prefabs/PlacableItems/BoxeG",
+            Cost = 30
+        },
+        new PlacableItemArchetype()
+        {
+            ItemType = PlacableItemType.BOXED,
+            SpritePath = "Sprites/Items_BoxeD2",
+            PrefabPath = "Prefabs/PlacableItems/BoxeD",
+            Cost = 30
+        },
+        new PlacableItemArchetype()
+        {
             ItemType = PlacableItemType.PORTAL,
             SpritePath = "Sprites/Items_Portal1",
             PrefabPath = "Prefabs/PlacableItems/Portal",
