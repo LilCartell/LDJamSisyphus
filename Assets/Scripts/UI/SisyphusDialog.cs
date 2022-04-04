@@ -15,7 +15,9 @@ public class SisyphusDialog : MonoBehaviour
             "TUTO_01",
             "TUTO_02",
             "TUTO_03",
-            "TUTO_04"
+            "TUTO_04",
+            "TUTO_05",
+            "TUTO_06"
         };
         this.gameObject.SetActive(true);
         NextButton.gameObject.SetActive(true);
@@ -28,6 +30,14 @@ public class SisyphusDialog : MonoBehaviour
         this.gameObject.SetActive(true);
         NextButton.gameObject.SetActive(false);
     }
+
+    public void LoadPersonalBestDialog()
+    {
+        Dialog.text = Strings.Get("BEAT_PERSONAL_BEST_SISYPHUS");
+        this.gameObject.SetActive(true);
+        NextButton.gameObject.SetActive(false);
+    }
+
 
     public void NextDialog()
     {

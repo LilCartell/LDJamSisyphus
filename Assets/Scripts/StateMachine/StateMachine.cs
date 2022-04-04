@@ -131,6 +131,7 @@ public class StateMachine : MonoBehaviour
 					case StateType.BALL_ROLLING:
 						MainScene.Instance.ScoreContainer.gameObject.SetActive(false);
 						MainScene.Instance.SisyphusDialog.LoadTutorialDialog();
+						MainScene.Instance.StopButton.SetActive(false);
 						break;
                 }
 				break;
@@ -144,6 +145,19 @@ public class StateMachine : MonoBehaviour
 						if(GameSession.Instance.HasWonOnce)
                         {
 							MainScene.Instance.ScoreScreen.Load(Strings.Get("RANDOM_WIN_SCORE_SCREEN"));
+							if(GameSession.Instance.LastScore >= GameSession.Instance.BestScore)
+                            {
+								MainScene.Instance.ScoreScreen.Load(Strings.Get("BEAT_PERSONAL_BEST_SCORE_SCREEN"));
+								MainScene.Instance.SisyphusDialog.LoadPersonalBestDialog();
+							}
+							else if (GameSession.Instance.LastScore > MainScene.Instance.VictoryTime)
+                            {
+								MainScene.Instance.ScoreScreen.Load(Strings.Get("RANDOM_WIN_SCORE_SCREEN"));
+							}
+							else
+                            {
+								MainScene.Instance.ScoreScreen.Load(Strings.Get("DEFEAT_SCORE_SCREEN"));
+							}
 							MainScene.Instance.Leaderboard.gameObject.SetActive(true);
                         }
 						else
