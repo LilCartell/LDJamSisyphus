@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,9 @@ public class PortalBehavior : MonoBehaviour
                 continue;
             otherPortals.Add(go);
         }   
-        if(otherPortals.Count>0){
+        if(otherPortals.Count>0)
+        {
+            Random.InitState(MainScene.Instance.GetMagicBallPositionRandomSeed());
             int portalId = Random.Range(0, otherPortals.Count);
             destinationPosition = otherPortals[portalId].transform.position;            
             otherPortals[portalId].GetComponent<ItemAutoDestruct>().BallCollision();

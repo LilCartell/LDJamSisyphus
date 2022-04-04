@@ -10,7 +10,9 @@ public class BumperBehavior : MonoBehaviour
    private float zForce = 100f; 
 
      void OnTriggerEnter(Collider collider){
-         if(isFlipper){
+         if(isFlipper)
+        {
+            Random.InitState(MainScene.Instance.GetMagicBallPositionRandomSeed());
             xForce =Random.Range(-100.0f, 100f);
             zForce =Random.Range(50f, 200f);
             gameObject.GetComponent<Animator>().SetBool("isBumping", true);

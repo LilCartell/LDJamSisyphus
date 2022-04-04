@@ -26,6 +26,7 @@ public class MainScene : GenericScene
     public static MainScene Instance { get; private set; }
 
     private Vector3 _firstBallPosition;
+    private Quaternion _firstBallRotation;
 
     private float _timeSinceNoBallMovement;
     private Vector3 _ballPositionLastFrame;
@@ -34,6 +35,7 @@ public class MainScene : GenericScene
     {
         Instance = this;
         _firstBallPosition = Ball.transform.position;
+        _firstBallRotation = Ball.transform.rotation;
         CurrentPoints = MaxPoints;
     }
 
@@ -62,6 +64,9 @@ public class MainScene : GenericScene
     public void SetBallToInitPosition()
     {
         Ball.transform.position = _firstBallPosition;
+        Ball.transform.rotation = _firstBallRotation;
+        Ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     public void OnStartButtonClick()
@@ -119,6 +124,11 @@ public class MainScene : GenericScene
     public float GetBestScore()
     {
         return GameSession.Instance.BestScore;
+    }
+
+    public int GetMagicBallPositionRandomSeed()
+    {
+        return Ball.transform.position.GetHashCode();
     }
 
     protected override StateType GetFirstState()
