@@ -8,6 +8,8 @@ public class ItemAutoDestruct : MonoBehaviour
 
     public AudioClip ItemSound;
 
+    public bool Invicible;
+
     private void OnEnable()
     {
         ResetCollisions();
@@ -29,17 +31,20 @@ public class ItemAutoDestruct : MonoBehaviour
 
     public void BallCollision(){
         SoundManager.Instance.PlayItemSound(ItemSound);
-        _remainingCollisions--;
-        if(_remainingCollisions <= 0){
-            gameObject.SetActive(false);
-            GameObject go = Resources.Load("Prefabs/PlacableItems/ItemExplosion") as GameObject;
-            Instantiate(go, transform.position, Quaternion.identity, MainScene.Instance.PlacableItemsRoot);
+        if(!Invicible){
+            _remainingCollisions--;
+            if(_remainingCollisions <= 0){
+                gameObject.SetActive(false);
+                GameObject go = Resources.Load("Prefabs/PlacableItems/ItemExplosion") as GameObject;
+                Instantiate(go, transform.position, Quaternion.identity, MainScene.Instance.PlacableItemsRoot);
 
-            // Explosion Sound if not a portal
-            if ( gameObject.tag != "Portal" ){
-                SoundManager.Instance.PlayExplosion();
-            }
-            
+                // Explosion Sound if not a portal
+                if ( gameObject.tag != "Portal" ){
+                    SoundManager.Instance.PlayExplosion();
+                }
+                
+            }   
         }
+        
     }
 }

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionsForExplosion: 5
   ItemSound: {fileID: 8300000, guid: 1b9e57101ca5e2548a439ab372183f61, type: 3}
+  Invicible: 1
 --- !u!1 &4489324613610938184
 GameObject:
   m_ObjectHideFlags: 0
