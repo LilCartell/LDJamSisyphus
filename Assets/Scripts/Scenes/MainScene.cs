@@ -11,6 +11,7 @@ public class MainScene : GenericScene
     public SisyphusDialog SisyphusDialog;
     public ScoreScreen ScoreScreen;
     public LeaderBoard Leaderboard;
+    public GameObject ObjectiveText;
     public Transform PlacableItemsRoot;
     public Vector3 OffsetForPlacingItems;
     public float MinDistanceBetweenItems;

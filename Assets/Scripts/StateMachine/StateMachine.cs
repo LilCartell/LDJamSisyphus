@@ -168,6 +168,7 @@ public class StateMachine : MonoBehaviour
 								MainScene.Instance.ScoreScreen.Load(Strings.Get("FIRST_WIN_SCORE_SCREEN"));
 								MainScene.Instance.SisyphusDialog.LoadFirstWinDialog();
 								GameSession.Instance.HasWonOnce = true;
+								MainScene.Instance.ObjectiveText.SetActive(false); //Never show again
                             }
 							else
                             {

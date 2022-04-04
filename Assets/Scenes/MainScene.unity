@@ -407,6 +407,7 @@ MonoBehaviour:
   SisyphusDialog: {fileID: 1862215260}
   ScoreScreen: {fileID: 241621886}
   Leaderboard: {fileID: 801445764629579352}
+  ObjectiveText: {fileID: 930101377}
   PlacableItemsRoot: {fileID: 808816199}
   OffsetForPlacingItems: {x: 0, y: 0, z: 0}
   MinDistanceBetweenItems: 0.2
@@ -428,6 +429,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &930101377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5421522165146348941, guid: 4b46c613cb73edc4c91dd4360b12c544,
+    type: 3}
+  m_PrefabInstance: {fileID: 801445764629579349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &956107051
 LightingSettings:
   m_ObjectHideFlags: 0
