@@ -844,6 +844,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1204155945601815086, guid: 775b96debb43ff0448cad1a185e7bef8,
+        type: 3}
+      propertyPath: MovementSpeedFactor
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 1204155945601815087, guid: 775b96debb43ff0448cad1a185e7bef8,
         type: 3}
       propertyPath: m_RootOrder
