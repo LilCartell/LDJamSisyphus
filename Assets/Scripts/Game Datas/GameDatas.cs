@@ -20,14 +20,14 @@ public class GameDatas
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.ROCK,
-            SpritePath = "Sprites/Item_rock",
+            SpritePath = "Sprites/Items_Muraille1_MenuSprite",
             PrefabPath = "Prefabs/PlacableItems/BackwardRectangle",
             Cost = 5
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.TREE,
-            SpritePath = "Sprites/Items_tree",
+            SpritePath = "Sprites/Items_Muraille3_MenuSprite",
             PrefabPath = "Prefabs/PlacableItems/ForwardRectangle",
             Cost = 5
         },
