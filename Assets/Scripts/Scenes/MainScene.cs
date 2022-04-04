@@ -4,6 +4,7 @@ public class MainScene : GenericScene
 {
     public PlacableItemsUI PlacementUI;
     public GameObject GoButton;
+    public GameObject StopButton;
     public GameObject Ball;
     public GameObject ScoreContainer;
     public ScoreCalculator ScoreCalculator;
@@ -68,6 +69,11 @@ public class MainScene : GenericScene
         StateMachine.Instance.TransitionToState(StateType.BALL_ROLLING);
     }
 
+    public void OnStopButtonClick()
+    {
+        StateMachine.Instance.TransitionToState(StateType.PLACING_OBJECTS);
+    }
+
     public void PrepareObjectsPlacement()
     {
         PlacementUI.gameObject.SetActive(true);
@@ -75,6 +81,7 @@ public class MainScene : GenericScene
         Camera.main.GetComponent<CameraControl>().SetToBasePosition();
         ScoreContainer.SetActive(false);
         GoButton.gameObject.SetActive(true);
+        StopButton.SetActive(false);
         SetBallToInitPosition();
     }
 
