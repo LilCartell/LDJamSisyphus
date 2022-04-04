@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 911100252}
   - component: {fileID: 911100251}
   - component: {fileID: 911100253}
+  - component: {fileID: 6506830915083673161}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -94,6 +95,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 911100251}
   HighscoreScript: {fileID: 1549565974191081847}
+--- !u!114 &6506830915083673161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911100249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.87058824, g: 0.6156863, b: 0.40784314, a: 1}
+  m_EffectDistance: {x: 10, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &120501289814941706
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +619,7 @@ GameObject:
   - component: {fileID: 4984450362711928519}
   - component: {fileID: 2050758674535840236}
   - component: {fileID: 887220556255308286}
+  - component: {fileID: 8664813808613370004}
   m_Layer: 5
   m_Name: Personnal HighscoreText
   m_TagString: Untagged
@@ -671,6 +688,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 3'56
+--- !u!114 &8664813808613370004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470362976233183356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.87058824, g: 0.6156863, b: 0.40784314, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1478123177212324062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,6 +2484,7 @@ GameObject:
   - component: {fileID: 7704100296182535347}
   - component: {fileID: 1609199414350507165}
   - component: {fileID: 5782901856290679982}
+  - component: {fileID: 3570966920371050168}
   m_Layer: 5
   m_Name: GameOverText
   m_TagString: Untagged
@@ -2476,7 +2509,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 61.749, y: 2}
-  m_SizeDelta: {x: 800.92, y: 369.992}
+  m_SizeDelta: {x: 1112.31, y: 369.992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1609199414350507165
 CanvasRenderer:
@@ -2519,7 +2552,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "D\xE9Ja ???"
+  m_Text: Already ???
+--- !u!114 &3570966920371050168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235380342349750898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.87058824, g: 0.6156863, b: 0.40784314, a: 1}
+  m_EffectDistance: {x: 10, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &7294337003891465810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,6 +3075,7 @@ GameObject:
   - component: {fileID: 6359056980672616509}
   - component: {fileID: 5931362740581568027}
   - component: {fileID: 4937153567121613034}
+  - component: {fileID: 5235966556330711111}
   m_Layer: 5
   m_Name: Personnal HighscoreTitle
   m_TagString: Untagged
@@ -3108,6 +3157,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: BEST_SCORE
+--- !u!114 &5235966556330711111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972403341822035637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.87058824, g: 0.6156863, b: 0.40784314, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8018509251269689203
 GameObject:
   m_ObjectHideFlags: 0
