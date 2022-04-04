@@ -43,7 +43,8 @@ public class Strings : MonoBehaviour
             {"BEAT_PERSONAL_BEST_SISYPHUS", "Hmmm, est-ce que je peux gratter encore un peu de temps ?" },
             {"BEST_SCORE", "Meilleur temps :"},
             {"LEADERBOARD_TITLE", "Ils m'ont aidés" },
-            {"START_AGAIN", "Recommencer" }
+            {"START_AGAIN", "Recommencer" },
+            {"OBJECTIVE", "Objectif : 1'OO" }
         };
     }
 
@@ -69,7 +70,8 @@ public class Strings : MonoBehaviour
             {"BEAT_PERSONAL_BEST_SISYPHUS", "Hmmm, maybe I can buy yet more time... ?" },
             {"BEST_SCORE", "Personal best :"},
             {"LEADERBOARD_TITLE", "They helped me" },
-            {"START_AGAIN", "Start again" }
+            {"START_AGAIN", "Start again" },
+            {"OBJECTIVE", "Goal: 1'OO" }
         };
     }
 
@@ -95,7 +97,8 @@ public class Strings : MonoBehaviour
             {"BEAT_PERSONAL_BEST_SISYPHUS", "Χμμμ, ίσως μπορώ να αγοράσω ακόμα περισσότερο χρόνο... ;" },
             {"BEST_SCORE", "Η καλύτερη στιγμή:"},
             {"LEADERBOARD_TITLE", "Με βοήθησαν" },
-            {"START_AGAIN", "επανεκκίνηση" }
+            {"START_AGAIN", "επανεκκίνηση" },
+            {"OBJECTIVE", "Στόχος: 1'OO" }
         };
     }
 }
