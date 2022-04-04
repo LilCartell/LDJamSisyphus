@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionsForExplosion: 1
+  ItemSound: {fileID: 8300000, guid: 151f3402dac819a4c97f8fbf5e88c4c0, type: 3}
 --- !u!114 &459645665727707816
 MonoBehaviour:
   m_ObjectHideFlags: 0

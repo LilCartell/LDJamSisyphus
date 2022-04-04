@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionsForExplosion: 2
+  ItemSound: {fileID: 8300000, guid: 57cbb3bd1df3f2b47ac9e048ed14194b, type: 3}
 --- !u!95 &2696975968017686203
 Animator:
   serializedVersion: 3
