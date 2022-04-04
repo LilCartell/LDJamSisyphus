@@ -17,6 +17,7 @@ public class CameraControl : MonoBehaviour
     private Vector3 _downDirection;
     private Vector3 _leftDirection;
     private Vector3 _initialOffsetToTarget;
+    private bool _hasCursorBeenInCenterSinceLastReset;
 
 
     private void Start()
@@ -60,15 +61,32 @@ public class CameraControl : MonoBehaviour
             {
                 float xRatio = Input.mousePosition.x / Screen.width;
                 float yRatio = Input.mousePosition.y / Screen.height;
+
+                bool isCenteredInX = false;
+                bool isCenteredInY = false;
+
                 if (xRatio > 0.9 && xRatio < 1.05)
                     _totalLeftFactor -= MovementSpeedFactor;
                 else if (xRatio < 0.1 && xRatio > -0.05)
                     _totalLeftFactor += MovementSpeedFactor;
+                else
+                    isCenteredInX = true;
 
                 if (yRatio > 0.9 && yRatio < 1.05)
-                    _totalDownFactor -= MovementSpeedFactor;
+                {
+                    if(_hasCursorBeenInCenterSinceLastReset)
+                        _totalDownFactor -= MovementSpeedFactor;
+                }
                 else if (yRatio < 0.1 && yRatio > -0.05)
-                    _totalDownFactor += MovementSpeedFactor;
+                {
+                    if(_hasCursorBeenInCenterSinceLastReset)
+                        _totalDownFactor += MovementSpeedFactor;
+                }
+                else
+                    isCenteredInY = true;
+
+                if (isCenteredInX && isCenteredInY)
+                    _hasCursorBeenInCenterSinceLastReset = true;
             }
 
             _totalDownFactor = Mathf.Clamp(_totalDownFactor, UpperLimit, DownLimit);
@@ -89,6 +107,7 @@ public class CameraControl : MonoBehaviour
         _totalDownFactor = 0;
         _totalLeftFactor = 0;
         this.GetComponent<Camera>().orthographicSize = _initialSize * DistanceFactorWhenPlacingObjects;
+        _hasCursorBeenInCenterSinceLastReset = false;
     }
 
     public void SetToRollingPosition()
