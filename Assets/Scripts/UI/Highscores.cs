@@ -67,7 +67,7 @@ public class Highscores : MonoBehaviour
         if (string.IsNullOrEmpty(www.error))
         {
             print("Upload Successful");
-            // DownloadHighscores();
+             DownloadHighscores();
         }
         else
         {
