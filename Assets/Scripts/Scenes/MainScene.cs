@@ -107,6 +107,7 @@ public class MainScene : GenericScene
         Camera.main.GetComponent<CameraControl>().SetToRollingPosition();
         ScoreContainer.GetComponentInChildren<ScoreCalculator>().ResetScore();
         ScoreContainer.SetActive(true);
+        Ball.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void UpdatePoints(int modification)
