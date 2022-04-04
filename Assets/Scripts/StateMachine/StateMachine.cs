@@ -92,6 +92,12 @@ public class StateMachine : MonoBehaviour
 						MainScene.Instance.ReactivateDestroyedObjects();
 						SoundManager.Instance.PlayPlacingMusic();
 						break;
+					case StateType.BALL_ROLLING:
+						MainScene.Instance.PrepareObjectsPlacement();
+						MainScene.Instance.ReactivateDestroyedObjects();
+						SoundManager.Instance.PlayPlacingMusic();
+						MainScene.Instance.StopButton.SetActive(false);
+						break;
 				}
 				break;
 
@@ -100,7 +106,13 @@ public class StateMachine : MonoBehaviour
                 {
 					case StateType.END_TITLE_SCENE:
 						SceneManager.LoadScene("MainScene");
-						StartCoroutine(ExecuteActionAfterAFrame(() => MainScene.Instance.PrepareBallRoll()));
+						StartCoroutine(ExecuteActionAfterAFrame(() =>
+							{
+								MainScene.Instance.PrepareBallRoll();
+								MainScene.Instance.StopButton.SetActive(false);
+								MainScene.Instance.GoButton.SetActive(false);
+							}
+							));
 						SoundManager.Instance.PlayRollingMusic();
 						break;
 
@@ -108,6 +120,7 @@ public class StateMachine : MonoBehaviour
 						MainScene.Instance.PrepareBallRoll();
 						MainScene.Instance.GoButton.gameObject.SetActive(false);
 						SoundManager.Instance.PlayRollingMusic();
+						MainScene.Instance.StopButton.SetActive(true);
 						break;
                 }
 				break;
@@ -127,6 +140,7 @@ public class StateMachine : MonoBehaviour
                 {
 					case StateType.BALL_ROLLING:
 						MainScene.Instance.ScoreCalculator.SubmitScore();
+						MainScene.Instance.StopButton.SetActive(false);
 						if(GameSession.Instance.HasWonOnce)
                         {
 							MainScene.Instance.ScoreScreen.Load(Strings.Get("RANDOM_WIN_SCORE_SCREEN"));
