@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   DistanceFactorWhenPlacingObjects: 2
-  MovementSpeedFactor: 0.01
+  MovementSpeedFactor: 0.05
   UpperLimit: 0.74
   DownLimit: 8.41
   LeftLimit: 1.07
