@@ -5,16 +5,27 @@ using UnityEngine.UI;
 public class PlacableItemDisplayer2D : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image icon;
+    public GameObject pointsContainer;
+    public Text cost;
+    public GameObject unavailableMask;
 
+    private bool _isAvailable;
     private PlacableItemType _itemType;
     private bool _isCopy;
     private PlacableItemDisplayer3D _linked3DItem;
+
+    public void RefreshAvailable()
+    {
+        _isAvailable = (GameDatas.Instance.GetPlacableItemArchetypeByType(_itemType).Cost <= MainScene.Instance.CurrentPoints);
+        unavailableMask.SetActive(!_isAvailable);
+    }
 
     public void InitializeOriginalWithItemType(PlacableItemType itemType)
     {
         _itemType = itemType;
         _isCopy = false;
         icon.sprite = Resources.Load<Sprite>(GameDatas.Instance.GetPlacableItemArchetypeByType(itemType).SpritePath);
+        cost.text = GameDatas.Instance.GetPlacableItemArchetypeByType(itemType).Cost.ToString() ;
     }
 
     public void InitializeCopyWithItemType(PlacableItemType itemType)
@@ -29,11 +40,12 @@ public class PlacableItemDisplayer2D : MonoBehaviour, IBeginDragHandler, IDragHa
         _linked3DItem.transform.localRotation = rotationBefore;
         _linked3DItem.gameObject.SetActive(false);
         _linked3DItem.SetDraggedFrom2D();
+        _linked3DItem.SetItemType(itemType);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(!_isCopy)
+        if(_isAvailable && !_isCopy)
         {
             var copy = (GameObject)Instantiate(this.gameObject);
             copy.GetComponent<PlacableItemDisplayer2D>().InitializeCopyWithItemType(_itemType);
@@ -61,6 +73,7 @@ public class PlacableItemDisplayer2D : MonoBehaviour, IBeginDragHandler, IDragHa
     {
         GetComponent<Image>().enabled = visible;
         icon.gameObject.SetActive(visible);
+        pointsContainer.SetActive(visible);
     }
 
     public void OnEndDrag(PointerEventData eventData)

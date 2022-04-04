@@ -8,6 +8,7 @@ public class PlacableItemDisplayer3D : MonoBehaviour
     public bool IsOnGround { get; private set; }
     public bool WasCreatedFromConstructionScreen { get; private set; }
 
+    private PlacableItemType _itemType;
     private bool _dragged3D;
     private bool _dragged2D;
     private bool _placementOk;
@@ -16,6 +17,11 @@ public class PlacableItemDisplayer3D : MonoBehaviour
     {
         _dragged2D = true;
         WasCreatedFromConstructionScreen = true;
+    }
+
+    public void SetItemType(PlacableItemType itemType)
+    {
+        _itemType = itemType;
     }
 
     public void OnMouseDown()
@@ -73,6 +79,11 @@ public class PlacableItemDisplayer3D : MonoBehaviour
 
     public void OnEndDrag()
     {
+        if (_dragged3D && !_placementOk) //Destroying previously placed item : adding back its cost to the points
+            MainScene.Instance.UpdatePoints(GameDatas.Instance.GetPlacableItemArchetypeByType(_itemType).Cost);
+        if(_dragged2D && _placementOk) //Putting object for first time : removing its cost from the points
+            MainScene.Instance.UpdatePoints(-GameDatas.Instance.GetPlacableItemArchetypeByType(_itemType).Cost);
+
         _dragged2D = false;
         _dragged3D = false;
 

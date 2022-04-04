@@ -2,7 +2,7 @@
 
 public class MainScene : GenericScene
 {
-    public GameObject PlacementUI;
+    public PlacableItemsUI PlacementUI;
     public GameObject GoButton;
     public GameObject Ball;
     public GameObject ScoreContainer;
@@ -15,6 +15,9 @@ public class MainScene : GenericScene
     public float MinDistanceBetweenItems;
     public float BallNotMovingMaxTime;
     public float VictoryTime;
+    public float MaxPoints;
+
+    public float CurrentPoints { get; private set; }
 
     [HideInInspector]
     public bool IsDragging2DObject;
@@ -30,6 +33,7 @@ public class MainScene : GenericScene
     {
         Instance = this;
         _firstBallPosition = Ball.transform.position;
+        CurrentPoints = MaxPoints;
     }
 
     private void Update()
@@ -80,10 +84,11 @@ public class MainScene : GenericScene
         {
             var placable3DComponent = createdObject.GetComponent<PlacableItemDisplayer3D>();
             if (placable3DComponent != null && placable3DComponent.WasCreatedFromConstructionScreen)
-            {
                 placable3DComponent.gameObject.SetActive(true);
-                createdObject.GetComponent<ItemAutoDestruct>().ResetCollisions();
-            }
+
+            var autoDestructComponent = createdObject.GetComponent<ItemAutoDestruct>();
+            if (autoDestructComponent != null)
+                autoDestructComponent.ResetCollisions();
         }
     }
 
@@ -95,6 +100,12 @@ public class MainScene : GenericScene
         Camera.main.GetComponent<CameraControl>().SetToRollingPosition();
         ScoreContainer.GetComponentInChildren<ScoreCalculator>().ResetScore();
         ScoreContainer.SetActive(true);
+    }
+
+    public void UpdatePoints(int modification)
+    {
+        CurrentPoints += modification;
+        PlacementUI.RefreshPoints();
     }
 
     public float GetBestScore()

@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 3590481555050895527}
   - component: {fileID: 1534992267721302886}
   - component: {fileID: 2062035863490515493}
+  - component: {fileID: 8168419320403176908}
   m_Layer: 5
   m_Name: ItemMenuBackground
   m_TagString: Untagged
@@ -440,6 +441,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8168419320403176908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134062586349322125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9faaa966b1488241a331c6eed44b046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placableItemDisplayerPrefab: {fileID: 5354173128715422144, guid: c5a18083a12639347aaf5277ab2eb56d,
+    type: 3}
+  itemsRoot: {fileID: 7684354793328244191}
+  CurrentPoints: {fileID: 5624014696787075398}
 --- !u!1 &1195470890387098295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1193,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7684354793328244191}
   - component: {fileID: 6005912075615202289}
-  - component: {fileID: 3692875656732170020}
   - component: {fileID: 9223094049014738498}
   m_Layer: 5
   m_Name: ItemsMenu
@@ -1212,21 +1228,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2498700914578467840}
   m_CullTransparentMesh: 1
---- !u!114 &3692875656732170020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2498700914578467840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9faaa966b1488241a331c6eed44b046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placableItemDisplayerPrefab: {fileID: 5354173128715422144, guid: c5a18083a12639347aaf5277ab2eb56d,
-    type: 3}
-  itemsRoot: {fileID: 7684354793328244191}
 --- !u!114 &9223094049014738498
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,43 +21,43 @@ public class GameDatas
         {
             ItemType = PlacableItemType.ROCK,
             SpritePath = "Sprites/Item_rock",
-            PrefabPath = "Prefabs/PlacableItems/Rock",
-            Cost = 1
+            PrefabPath = "Prefabs/PlacableItems/BackwardRectangle",
+            Cost = 5
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.TREE,
             SpritePath = "Sprites/Items_tree",
-            PrefabPath = "Prefabs/PlacableItems/Tree",
-            Cost = 3
+            PrefabPath = "Prefabs/PlacableItems/ForwardRectangle",
+            Cost = 5
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.BUMPER,
             SpritePath = "Sprites/Item_bumper",
             PrefabPath = "Prefabs/PlacableItems/Bumper",
-            Cost = 5
+            Cost = 10
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.FLIPPER,
             SpritePath = "Sprites/Items_Flipper1",
             PrefabPath = "Prefabs/PlacableItems/Flipper",
-            Cost = 10
+            Cost = 20
         },
         new PlacableItemArchetype()
         {
             ItemType = PlacableItemType.PORTAL,
             SpritePath = "Sprites/Items_Portal1",
             PrefabPath = "Prefabs/PlacableItems/Portal",
-            Cost = 15
+            Cost = 70
         }
     };
 
     private GameDatas()
     { }
 
-    public List<PlacableItemArchetype> GetPassableItemArchetypes()
+    public List<PlacableItemArchetype> GetPlacableItemArchetypes()
     {
         return _placableItemArchetypes;
     }
