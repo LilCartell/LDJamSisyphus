@@ -8,6 +8,20 @@ public class SoundManager : MonoBehaviour
 
 	public AudioSource AudioSource;
 
+
+
+	public AudioClip CollisionSound;
+    public AudioClip BumpSound;
+    public AudioClip FlipperSound;
+    public AudioClip PortalSound;
+
+    public AudioSource EffectsAudioSource;
+
+     public AudioClip ExplosionSound;
+
+    public AudioSource ExplosionAudioSource;
+
+
 	public static SoundManager Instance { get; private set; }
 
 	private void Awake()
@@ -37,7 +51,22 @@ public class SoundManager : MonoBehaviour
 
 	public void PlayPlacingMusic()
 	{
-		AudioSource.clip = RollingMusic;
+		AudioSource.clip = PlacingMusic;
 		AudioSource.Play();
 	}
+
+
+
+
+
+	public void PlayItemSound(AudioClip ObjectSound){
+		EffectsAudioSource.clip = ObjectSound;
+        EffectsAudioSource.Play();
+	}
+    public void PlayExplosion()
+    {
+        ExplosionAudioSource.clip = ExplosionSound;
+        ExplosionAudioSource.Play();
+    }
+
 }
