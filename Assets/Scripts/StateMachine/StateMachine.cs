@@ -35,6 +35,7 @@ public class StateMachine : MonoBehaviour
 						TitleScene.Instance.EnterPseudoPanel.gameObject.SetActive(false);
 						TitleScene.Instance.TitleScreen.gameObject.SetActive(false);
 						TitleScene.Instance.EndTitleScreen.gameObject.SetActive(false);
+						SoundManager.Instance.PlayTitleMusic();
 						break;
                 }
 				break;
@@ -81,6 +82,7 @@ public class StateMachine : MonoBehaviour
 					case StateType.NONE:
 					case StateType.END_TITLE_SCENE:
 						MainScene.Instance.PrepareObjectsPlacement();
+						SoundManager.Instance.PlayPlacingMusic();
 						break;
 					case StateType.SCORE_SCREEN:
 					case StateType.TUTORIAL:
@@ -88,6 +90,7 @@ public class StateMachine : MonoBehaviour
 						MainScene.Instance.SisyphusDialog.gameObject.SetActive(false);
 						MainScene.Instance.PrepareObjectsPlacement();
 						MainScene.Instance.ReactivateDestroyedObjects();
+						SoundManager.Instance.PlayPlacingMusic();
 						break;
 				}
 				break;
@@ -98,11 +101,13 @@ public class StateMachine : MonoBehaviour
 					case StateType.END_TITLE_SCENE:
 						SceneManager.LoadScene("MainScene");
 						StartCoroutine(ExecuteActionAfterAFrame(() => MainScene.Instance.PrepareBallRoll()));
+						SoundManager.Instance.PlayRollingMusic();
 						break;
 
 					case StateType.PLACING_OBJECTS:
 						MainScene.Instance.PrepareBallRoll();
 						MainScene.Instance.GoButton.gameObject.SetActive(false);
+						SoundManager.Instance.PlayRollingMusic();
 						break;
                 }
 				break;
